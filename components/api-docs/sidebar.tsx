@@ -18,7 +18,7 @@ const navigation: NavItem[] = [
   {
     title: "Getting Started",
     items: [
-      { title: "Getting Started with WasenderAPI", href: "#getting-started" },
+      { title: "Getting Started with GoWAPI", href: "#getting-started" },
       { title: "Using Our API with Postman", href: "#postman" },
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
       { title: "Model Context Protocol (MCP) Integration", href: "#mcp" },
@@ -200,7 +200,7 @@ export function Sidebar({ onClose }: SidebarProps) {
           <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-sm">W</span>
           </div>
-          <span className="font-semibold text-white">WasenderAPI</span>
+          <span className="font-semibold text-white">GoWAPI</span>
         </div>
       </div>
 

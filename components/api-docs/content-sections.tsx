@@ -9,24 +9,24 @@ export function GettingStartedSection() {
       <div className="mb-8">
         <h2 className="text-xl font-semibold text-white mb-4" id="getting-started">Getting Started</h2>
         <p className="text-[#a3a3a3] mb-6 leading-relaxed">
-          Kick off your integration with WasenderAPI in minutes. This section guides you through the essentials — from generating your API token to establishing your first WhatsApp session and sending your first message.
+          Kick off your integration with GoWAPI in minutes. This section guides you through the essentials — from generating your API token to establishing your first WhatsApp session and sending your first message.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           <SectionCard
-            title="Getting Started with WasenderAPI"
-            description="Learn how to quickly set up your WasenderAPI account and start sending WhatsApp messages in minutes. This guide covers account creation, token generation, sending your first message, and tracking delivery using our developer-friendly REST API."
+            title="Getting Started with GoWAPI"
+            description="Learn how to quickly set up your GoWAPI account and start sending WhatsApp messages in minutes. This guide covers account creation, token generation, sending your first message, and tracking delivery using our developer-friendly REST API."
           />
           <SectionCard
             title="Using Our API with Postman"
             description="Learn how to interact with our API using the official Postman collection."
           />
           <SectionCard
-            title="How To Receive Messages and Media From WasenderAPI"
+            title="How To Receive Messages and Media From GoWAPI"
             description="A developer's guide to receiving and processing real-time message events. This documentation details the flattened JSON payload, unified messageBody field, and handling for both Private and Group chats."
           />
           <SectionCard
             title="Model Context Protocol (MCP) Integration"
-            description="Connect WasenderAPI to AI agents and automation tools using the Model Context Protocol. This remote MCP server exposes WhatsApp session management, messaging, contacts, and groups as callable tools for Claude Code, OpenCode, n8n, and other MCP-compatible platforms."
+            description="Connect GoWAPI to AI agents and automation tools using the Model Context Protocol. This remote MCP server exposes WhatsApp session management, messaging, contacts, and groups as callable tools for Claude Code, OpenCode, n8n, and other MCP-compatible platforms."
           />
           <SectionCard
             title="Using Proxies"
@@ -48,7 +48,7 @@ export function DeveloperSDKsSection() {
       <div className="grid gap-4">
         <SectionCard
           title="Official SDKs – Node.js, Python & Laravel"
-          description="WasenderAPI provides official SDKs to help developers integrate quickly and efficiently using their preferred programming language or framework."
+          description="GoWAPI provides official SDKs to help developers integrate quickly and efficiently using their preferred programming language or framework."
         />
       </div>
     </section>

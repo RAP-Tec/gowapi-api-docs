@@ -14,7 +14,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           <div className="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xs">W</span>
           </div>
-          <span className="font-semibold text-white text-sm">WasenderAPI</span>
+          <span className="font-semibold text-white text-sm">GoWAPI</span>
         </div>
         <button
           onClick={onMenuClick}
