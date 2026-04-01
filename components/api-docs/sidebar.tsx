@@ -24,7 +24,6 @@ const navigation: NavItem[] = [
       { title: "Getting Started with GoWAPI", href: "/getting-started" },
       { title: "Using Our API with Swagger", href: "/using-our-api-with-swagger" },
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
-      { title: "Model Context Protocol (MCP) Integration", href: "#mcp" },
       { title: "Using Proxies", href: "#proxies" },
     ],
   },

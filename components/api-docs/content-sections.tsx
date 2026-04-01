@@ -27,10 +27,6 @@ export function GettingStartedSection() {
             description="A developer's guide to receiving and processing real-time message events. This documentation details the flattened JSON payload, unified messageBody field, and handling for both Private and Group chats."
           />
           <SectionCard
-            title="Model Context Protocol (MCP) Integration"
-            description="Connect GoWAPI to AI agents and automation tools using the Model Context Protocol. This remote MCP server exposes WhatsApp session management, messaging, contacts, and groups as callable tools for Claude Code, OpenCode, n8n, and other MCP-compatible platforms."
-          />
-          <SectionCard
             title="Using Proxies"
             description="Learn how to configure proxies for your WhatsApp sessions to prevent frequent disconnects and ensure fast, reliable message delivery. SOCKS5 is highly recommended."
           />
