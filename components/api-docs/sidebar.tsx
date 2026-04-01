@@ -255,6 +255,15 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
     )
   }
 
+  const isItemActive = (itemHref: string, sectionTitle: string) => {
+    if (itemHref.startsWith("/")) {
+      return pathname === itemHref || pathname.startsWith(`${itemHref}/`)
+    }
+
+    const sectionRoute = sectionRoutes[sectionTitle] ?? "/"
+    return pathname === sectionRoute && itemHref === "#"
+  }
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const isCommandOrControl = event.metaKey || event.ctrlKey
@@ -328,7 +337,12 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
                     key={item.title}
                     href={item.href.startsWith("/") ? item.href : `${sectionRoutes[section.title] ?? "/"}${item.href}`}
                     onClick={onClose}
-                    className="flex items-center gap-2 px-3 py-1.5 text-sm text-[#a3a3a3] hover:text-white hover:bg-[#171717] rounded-lg transition-colors"
+                    className={cn(
+                      "flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors",
+                      isItemActive(item.href, section.title)
+                        ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                        : "text-[#a3a3a3] hover:text-white hover:bg-[#171717]"
+                    )}
                   >
                     {item.method && <MethodBadge method={item.method} />}
                     <span className="truncate">{item.title}</span>
