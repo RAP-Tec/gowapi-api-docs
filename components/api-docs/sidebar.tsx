@@ -16,7 +16,7 @@ interface NavItem {
 
 const navigation: NavItem[] = [
   {
-    title: "Getting Started",
+    title: "Home",
     items: [
       { title: "Getting Started with GoWAPI", href: "#getting-started" },
       { title: "Using Our API with Postman", href: "#postman" },
@@ -165,7 +165,7 @@ const navigation: NavItem[] = [
 ]
 
 const sectionRoutes: Record<string, string> = {
-  "Getting Started": "/",
+  Home: "/",
   "Developer SDKs": "/developer-sdks",
   "Authentication": "/authentication",
   Sessions: "/sessions",
