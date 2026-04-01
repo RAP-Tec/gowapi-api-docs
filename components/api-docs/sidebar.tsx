@@ -184,7 +184,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ onClose }: SidebarProps) {
-  const [openSections, setOpenSections] = useState<string[]>(["Getting Started", "Sessions", "Messages"])
+  // AQUI const [openSections, setOpenSections] = useState<string[]>(["Getting Started", "Sessions", "Messages"]) // AQUI define quais sessões já vem abertas
+  const [openSections, setOpenSections] = useState<string[]>([])
 
   const toggleSection = (title: string) => {
     setOpenSections((prev) =>
