@@ -51,7 +51,7 @@ export function DocsShell({ children }: Readonly<DocsShellProps>) {
                 GoWAPI WhatsApp API
               </h1>
               <p className="text-lg text-[#a3a3a3] leading-relaxed">
-                Low Cost WhatsApp API for Developers. Build powerful WhatsApp integrations with our easy-to-use REST API.
+                Best WhatsApp API for Developers and Automators. Build powerful WhatsApp integrations with our easy-to-use REST API.
               </p>
             </div>
 
@@ -59,7 +59,7 @@ export function DocsShell({ children }: Readonly<DocsShellProps>) {
 
             <footer className="mt-16 pt-8 border-t border-[#262626] text-center">
               <p className="text-sm text-[#a3a3a3]">
-                GoWAPI - Low Cost WhatsApp API for Developers
+                GoWAPI - Best WhatsApp API for Developers and Automators
               </p>
             </footer>
           </div>

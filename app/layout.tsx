@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'GoWAPI - Low Cost WhatsApp API for Developers',
-  description: 'API Documentation - GoWAPI - Low Cost WhatsApp API for Developers',
+  title: 'GoWAPI - Best WhatsApp API for Developers and Automators',
+  description: 'API Documentation - GoWAPI - Best WhatsApp API for Developers and Automators',
   generator: 'v0.app',
   icons: {
     icon: [
