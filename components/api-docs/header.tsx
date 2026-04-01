@@ -2,16 +2,17 @@
 
 import { Menu } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface HeaderProps {
   onMenuClick: () => void
 }
 
-export function Header({ onMenuClick }: HeaderProps) {
+export function Header({ onMenuClick }: Readonly<HeaderProps>) {
   return (
     <header className="sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur border-b border-[#262626] lg:hidden">
       <div className="flex items-center justify-between px-4 h-14">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/favicon.png"
             alt="GoWAPI logo"
@@ -20,7 +21,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             className="rounded-lg"
           />
           <span className="font-semibold text-white text-sm">GoWAPI</span>
-        </div>
+        </Link>
         <button
           onClick={onMenuClick}
           className="p-2 text-[#a3a3a3] hover:text-white hover:bg-[#171717] rounded-lg transition-colors"

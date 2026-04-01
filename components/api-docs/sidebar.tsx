@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { ChevronDown, Search } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface NavItem {
   title: string
@@ -17,7 +18,7 @@ interface NavItem {
 
 const navigation: NavItem[] = [
   {
-    title: "Home",
+    title: "Getting Started",
     items: [
       { title: "Getting Started with GoWAPI", href: "/getting-started" },
       { title: "Using Our API with Postman", href: "#postman" },
@@ -166,7 +167,7 @@ const navigation: NavItem[] = [
 ]
 
 const sectionRoutes: Record<string, string> = {
-  Home: "/",
+  "Getting Started": "/",
   "Developer SDKs": "/developer-sdks",
   "Authentication": "/authentication",
   Sessions: "/sessions",
@@ -251,7 +252,7 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
     <aside className="flex flex-col h-full bg-[#0a0a0a] border-r border-[#262626]">
       {/* Logo */}
       <div className="p-4 border-b border-[#262626]">
-        <div className="flex items-center gap-2">
+        <Link href="/" onClick={onClose} className="flex items-center gap-2">
           <Image
             src="/favicon.png"
             alt="GoWAPI logo"
@@ -260,7 +261,7 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
             className="rounded-lg"
           />
           <span className="font-semibold text-white">GoWAPI</span>
-        </div>
+        </Link>
       </div>
 
       {/* Search */}
