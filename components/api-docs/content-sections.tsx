@@ -15,6 +15,7 @@ export function GettingStartedSection() {
           <SectionCard
             title="Getting Started with GoWAPI"
             description="Learn how to quickly set up your GoWAPI account and start sending WhatsApp messages in minutes. This guide covers account creation, token generation, sending your first message, and tracking delivery using our developer-friendly REST API."
+            href="/getting-started"
           />
           <SectionCard
             title="Using Our API with Postman"
@@ -33,6 +34,106 @@ export function GettingStartedSection() {
             description="Learn how to configure proxies for your WhatsApp sessions to prevent frequent disconnects and ensure fast, reliable message delivery. SOCKS5 is highly recommended."
           />
         </div>
+      </div>
+    </section>
+  )
+}
+
+export function GettingStartedGuideSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">Getting Started with GoWAPI</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Learn how to quickly set up your GoWAPI account and start sending WhatsApp messages in minutes. This guide covers account creation, token generation, sending your first message, and tracking delivery using our developer-friendly REST API.
+        </p>
+
+        <h3 className="text-3xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Getting Started with GoWAPI - WhatsApp Messaging API
+        </h3>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Introduction</h4>
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          Welcome to GoWAPI - your reliable WhatsApp API platform. This guide will walk you through the steps to set up and start sending messages using our powerful API. It&apos;s quick, secure, and developer-friendly.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Step 1: Create an Account</h4>
+        <ul className="text-[#a3a3a3] mb-8 space-y-2">
+          <li>Go to the registration page.</li>
+          <li>Fill in your details and verify your email address.</li>
+          <li>Once verified, log in to access your dashboard.</li>
+        </ul>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Step 2: Create Your First WhatsApp Session</h4>
+        <ul className="text-[#a3a3a3] mb-6 space-y-2">
+          <li><strong>Log in to Your Dashboard:</strong> Access your account at https://app.gowapi.com/dashboard.</li>
+          <li><strong>Navigate to the Sessions Section:</strong> In the dashboard, go to the Sessions tab.</li>
+          <li><strong>Create a New Session:</strong> Click on Create New Session.</li>
+          <li><strong>Scan the QR Code:</strong> A QR code will appear. Open WhatsApp on your phone, go to <strong>Settings &gt; Linked Devices</strong>, and scan the QR code to link your WhatsApp account.</li>
+          <li><strong>Session Activation:</strong> Once scanned, your session will connect, and you can copy your API key.</li>
+        </ul>
+
+        <p className="text-[#a3a3a3] mb-8">
+          For a more advanced walkthrough, check out the detailed guide here:{" "}
+          <a
+            href="https://help.gowapi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Creating Your First Session - GoWAPI Help Center
+          </a>
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Step 3: Send Your First Message</h4>
+
+        <h5 className="text-lg font-semibold text-white mb-2">API Endpoint</h5>
+        <pre className="mb-6 p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-emerald-400">
+{`POST https://www.gowapi.com/api/send-message`}
+        </pre>
+
+        <h5 className="text-lg font-semibold text-white mb-2">Headers</h5>
+        <pre className="mb-6 p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-emerald-400">
+{`Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json`}
+        </pre>
+
+        <h5 className="text-lg font-semibold text-white mb-2">Request Body</h5>
+        <pre className="mb-6 p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-emerald-400">
+{`{
+  "to": "12123456789",
+  "text": "Hello from GoWAPI!"
+}`}
+        </pre>
+
+        <div className="mb-8 p-3 border border-[#2a2a2a] rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Note:</strong> The number you&apos;re messaging must have agreed to receive WhatsApp messages.
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Step 4: Track Message Delivery</h4>
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          You can track the status of your messages through the session page or set up webhooks for real-time updates.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Need Help?</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Check out our Help Center or reach out to our support team at{" "}
+          <a href="mailto:contact@gowapi.com" className="text-emerald-400 hover:text-emerald-300 underline">
+            contact@gowapi.com
+          </a>
+          .
+        </p>
+
+        <a
+          href="https://app.gowapi.com/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors"
+        >
+          Go to Dashboard
+        </a>
       </div>
     </section>
   )

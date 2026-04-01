@@ -18,7 +18,7 @@ const navigation: NavItem[] = [
   {
     title: "Home",
     items: [
-      { title: "Getting Started with GoWAPI", href: "#getting-started" },
+      { title: "Getting Started with GoWAPI", href: "/getting-started" },
       { title: "Using Our API with Postman", href: "#postman" },
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
       { title: "Model Context Protocol (MCP) Integration", href: "#mcp" },
@@ -295,7 +295,7 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
                 {section.items.map((item) => (
                   <a
                     key={item.title}
-                    href={`${sectionRoutes[section.title] ?? "/"}${item.href}`}
+                    href={item.href.startsWith("/") ? item.href : `${sectionRoutes[section.title] ?? "/"}${item.href}`}
                     onClick={onClose}
                     className="flex items-center gap-2 px-3 py-1.5 text-sm text-[#a3a3a3] hover:text-white hover:bg-[#171717] rounded-lg transition-colors"
                   >
