@@ -6,6 +6,167 @@ import { useState } from "react"
 export default function GetAllWhatsAppSessionsPage() {
   const endpoint = "/api/whatsapp-sessions"
   const [copied, setCopied] = useState(false)
+  const languages = [
+    "Bash",
+    "Python",
+    "JavaScript",
+    "PHP",
+    "Ruby",
+    "Go",
+    "CSharp",
+    "Java",
+    "Swift",
+    "PowerShell",
+    "TypeScript",
+    "Rust",
+  ] as const
+  type Language = (typeof languages)[number]
+  const [activeLanguage, setActiveLanguage] = useState<Language>("Bash")
+  const codeExamples: Record<Language, string> = {
+    Bash: String.raw`curl --request GET \
+     --url https://hub0001.gowapi.dev/api/sessions \
+     --header 'X-Api-Key: session-api-key-here' \
+     --header 'accept: application/json'`,
+    Python: `import requests
+
+url = "https://hub0001.gowapi.dev/api/sessions"
+headers = {
+    "X-Api-Key": "session-api-key-here",
+    "accept": "application/json"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())`,
+    JavaScript: `const url = "https://hub0001.gowapi.dev/api/sessions";
+
+const response = await fetch(url, {
+  method: "GET",
+  headers: {
+    "X-Api-Key": "session-api-key-here",
+    "accept": "application/json",
+  },
+});
+
+const data = await response.json();
+console.log(data);`,
+    PHP: `<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://hub0001.gowapi.dev/api/sessions",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_HTTPHEADER => [
+    "X-Api-Key: session-api-key-here",
+    "accept: application/json"
+  ],
+]);
+
+$response = curl_exec($curl);
+curl_close($curl);
+
+echo $response;`,
+    Ruby: `require "net/http"
+require "uri"
+
+uri = URI.parse("https://hub0001.gowapi.dev/api/sessions")
+request = Net::HTTP::Get.new(uri)
+request["X-Api-Key"] = "session-api-key-here"
+request["accept"] = "application/json"
+
+response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+  http.request(request)
+end
+
+puts response.body`,
+    Go: `package main
+
+import (
+  "fmt"
+  "io"
+  "net/http"
+)
+
+func main() {
+  req, _ := http.NewRequest("GET", "https://hub0001.gowapi.dev/api/sessions", nil)
+  req.Header.Set("X-Api-Key", "session-api-key-here")
+  req.Header.Set("accept", "application/json")
+
+  res, _ := http.DefaultClient.Do(req)
+  defer res.Body.Close()
+
+  body, _ := io.ReadAll(res.Body)
+  fmt.Println(string(body))
+}`,
+    CSharp: `using System.Net.Http;
+
+var client = new HttpClient();
+var request = new HttpRequestMessage(HttpMethod.Get, "https://hub0001.gowapi.dev/api/sessions");
+request.Headers.Add("X-Api-Key", "session-api-key-here");
+request.Headers.Add("accept", "application/json");
+
+var response = await client.SendAsync(request);
+var body = await response.Content.ReadAsStringAsync();
+Console.WriteLine(body);`,
+    Java: `HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://hub0001.gowapi.dev/api/sessions"))
+    .header("X-Api-Key", "session-api-key-here")
+    .header("accept", "application/json")
+    .GET()
+    .build();
+
+HttpResponse<String> response = HttpClient.newHttpClient()
+    .send(request, HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());`,
+    Swift: `import Foundation
+
+var request = URLRequest(url: URL(string: "https://hub0001.gowapi.dev/api/sessions")!)
+request.httpMethod = "GET"
+request.setValue("session-api-key-here", forHTTPHeaderField: "X-Api-Key")
+request.setValue("application/json", forHTTPHeaderField: "accept")
+
+URLSession.shared.dataTask(with: request) { data, _, error in
+    guard let data = data, error == nil else { return }
+    print(String(data: data, encoding: .utf8) ?? "")
+}.resume()`,
+    PowerShell: `$headers = @{
+  "X-Api-Key" = "session-api-key-here"
+  "accept" = "application/json"
+}
+
+$response = Invoke-RestMethod -Uri "https://hub0001.gowapi.dev/api/sessions" -Method GET -Headers $headers
+$response | ConvertTo-Json -Depth 10`,
+    TypeScript: `const response = await fetch("https://hub0001.gowapi.dev/api/sessions", {
+  method: "GET",
+  headers: {
+    "X-Api-Key": "session-api-key-here",
+    "accept": "application/json",
+  },
+});
+
+const data = await response.json();
+console.log(data);`,
+    Rust: `use reqwest::header::{HeaderMap, HeaderValue, ACCEPT};
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut headers = HeaderMap::new();
+    headers.insert("X-Api-Key", HeaderValue::from_static("session-api-key-here"));
+    headers.insert(ACCEPT, HeaderValue::from_static("application/json"));
+
+    let client = reqwest::Client::new();
+    let response = client
+        .get("https://hub0001.gowapi.dev/api/sessions")
+        .headers(headers)
+        .send()
+        .await?;
+
+    let body = response.text().await?;
+    println!("{}", body);
+    Ok(())
+}`,
+  }
 
   const handleCopyEndpoint = async () => {
     try {
@@ -53,8 +214,8 @@ export default function GetAllWhatsAppSessionsPage() {
           </p>
 
           <div className="mb-8 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
-            This endpoint requires an access token to be included in the <code className="text-emerald-400">Authorization</code> header.
-            You can get the token from{" "}
+            This endpoint requires an API key in the <code className="text-emerald-400">X-Api-Key</code> header.
+            You can get your API key{" "}
             <a href="/authentication#api-tokens" className="text-emerald-400 hover:text-emerald-300 underline">
               here
             </a>.
@@ -62,23 +223,28 @@ export default function GetAllWhatsAppSessionsPage() {
 
           <h4 className="text-2xl font-semibold text-white mb-3">Code Examples</h4>
           <div className="mb-3 flex items-center gap-2 flex-wrap">
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500 text-white text-sm font-medium">Bash</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Python</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">JavaScript</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">PHP</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Ruby</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Go</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">CSharp</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Java</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Swift</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">PowerShell</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">TypeScript</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">Rust</span>
+            {languages.map((language) => {
+              const isActive = activeLanguage === language
+              return (
+                <button
+                  key={language}
+                  type="button"
+                  onClick={() => setActiveLanguage(language)}
+                  className={
+                    isActive
+                      ? "inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-sm font-medium border border-emerald-500/40"
+                      : "inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626] hover:text-white hover:border-[#404040] transition-colors"
+                  }
+                  aria-pressed={isActive}
+                >
+                  {language}
+                </button>
+              )
+            })}
           </div>
 
           <pre className="mb-8 p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-[#d4d4d4]">
-{`curl "https://www.gowapi.com/api/whatsapp-sessions" \\
-  -H "Authorization: Bearer YOUR_SESSION_ACCESS_TOKEN"`}
+{codeExamples[activeLanguage]}
           </pre>
 
           <h4 className="text-2xl font-semibold text-white mb-3">Response Examples</h4>
