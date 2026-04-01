@@ -29,6 +29,7 @@ export function GettingStartedSection() {
           <SectionCard
             title="Using Proxies"
             description="Learn how to configure proxies for your WhatsApp sessions to prevent frequent disconnects and ensure fast, reliable message delivery. SOCKS5 is highly recommended."
+            href="/using-proxies"
           />
         </div>
       </div>
@@ -184,6 +185,100 @@ export function UsingApiWithSwaggerSection() {
         <div className="mt-2 p-4 border-l-2 border-emerald-500 rounded-lg bg-emerald-500/10 text-[#d4d4d4] text-sm italic">
           Tip: Make sure you&apos;re logged into your Swagger account for the best experience.
         </div>
+      </div>
+    </section>
+  )
+}
+
+export function UsingProxiesSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">Using Proxies</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Learn how to configure proxies for your WhatsApp sessions to prevent frequent disconnects and ensure fast, reliable message delivery. SOCKS5 is highly recommended.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Configuring Proxies for WhatsApp Sessions
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          Using a proxy helps mask our server&apos;s IP address and routes your session&apos;s traffic through a dedicated IP, which helps with connection stability. Proxies can be configured individually per session.
+          {" "}
+          <strong>Supported Protocols:</strong> We support{" "}
+          <code className="text-emerald-400">http://</code>,{" "}
+          <code className="text-emerald-400">https://</code>, and{" "}
+          <code className="text-emerald-400">socks5://</code> proxies, but <strong>SOCKS5 is highly recommended</strong> for the best performance and seamless compatibility with WhatsApp.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-4">Best Practices & Recommendations</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          To ensure your sessions remain stable, please follow these guidelines when selecting a proxy:
+        </p>
+        <ul className="text-[#a3a3a3] mb-8 space-y-2">
+          <li><strong>Location Matching:</strong> Always use a proxy located in the <strong>same country</strong> as the phone number registered to the WhatsApp session.</li>
+          <li><strong>Sticky IPs:</strong> Use a <strong>sticky proxy</strong> (an IP that remains the same for a prolonged period) rather than a frequently rotating proxy.</li>
+          <li><strong>Speed is Key:</strong> Ensure your proxy is fast and has low latency. Slow proxies will cause connection timeouts and lead to <code className="text-emerald-400">session_not_ready</code> errors.</li>
+        </ul>
+
+        <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+          <strong>Recommended Provider:</strong> If you are looking for fast, reliable, and sticky SOCKS5 proxies that work perfectly with our system, we highly recommend{" "}
+          <a
+            href="https://geonode.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:text-emerald-300 underline"
+          >
+            GeoNode
+          </a>.
+        </p>
+        <p className="text-xs text-[#737373] italic mb-10">
+          (Disclaimer: This is an official link. Using it helps support our platform at no extra cost to you)
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-4">Configuration via Dashboard</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          You can easily assign a proxy to a session without writing any code:
+        </p>
+        <ul className="text-[#a3a3a3] mb-10 space-y-2">
+          <li>Navigate to your dashboard and go to <strong>Sessions</strong>.</li>
+          <li>Click <strong>Edit Session</strong> on the session you want to modify.</li>
+          <li>Locate the <strong>Proxy URL</strong> field.</li>
+          <li>
+            Enter your proxy string (e.g.{" "}
+            <code className="text-emerald-400">socks5://username:password@ip:port</code>
+            ) and save.
+          </li>
+        </ul>
+
+        <h4 className="text-4xl font-semibold text-white mb-4">Configuration via API</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          You can also programmatically update a session&apos;s proxy using our REST API.
+        </p>
+
+        <div className="mb-8 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Authentication Note:</strong> Because updating a session&apos;s core configuration is an account-level action, you must authenticate this request using your <strong>Personal Access Token</strong> (found in your profile settings), not the Session API Key.
+        </div>
+
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Make a <code className="text-emerald-400">PUT</code> request to the session endpoint with your proxy URL (example below):
+        </p>
+
+        <h5 className="text-xl font-semibold text-white mb-3">Code Examples</h5>
+        <div className="mb-3 inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+          Bash
+        </div>
+        <pre className="p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-[#d4d4d4]">
+{`curl -X PUT "https://www.gowapi.com/api/whatsapp-sessions/{whatsappSession}" \\
+  -H "Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "proxy_url": "socks5://username:password@ip:port"
+  }'`}
+        </pre>
       </div>
     </section>
   )
