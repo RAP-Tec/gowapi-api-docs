@@ -18,8 +18,9 @@ export function GettingStartedSection() {
             href="/getting-started"
           />
           <SectionCard
-            title="Using Our API with Postman"
+            title="Using Our API with Swagger"
             description="Learn how to interact with our API using the official Postman collection."
+            href="/using-our-api-with-swagger"
           />
           <SectionCard
             title="How To Receive Messages and Media From GoWAPI"
@@ -134,6 +135,59 @@ Content-Type: application/json`}
         >
           Go to Dashboard
         </a>
+      </div>
+    </section>
+  )
+}
+
+export function UsingApiWithSwaggerSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">Using Our API with Swagger</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Learn how to interact with our API using the official Swagger collection.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Swagger Collection for API Integration
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-10 leading-relaxed">
+          To help you get started quickly, we&apos;ve prepared a Swagger collection that contains all our API endpoints. You can use it to test requests and understand how the API works.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-3">Option 1: Run in Swagger</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Click the button below to open the collection directly in Swagger:
+        </p>
+        <a
+          href="https://swagger.gowapi.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors mb-10"
+        >
+          Run in Swagger →
+        </a>
+
+        <h4 className="text-4xl font-semibold text-white mb-3">Option 2: Download Collection</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          If you&apos;d rather import it manually, download the collection below:
+        </p>
+        <a
+          href="https://swagger.gowapi.dev/openapi.json"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors mb-8"
+        >
+          Download JSON File
+        </a>
+
+        <div className="mt-2 p-4 border-l-2 border-emerald-500 rounded-lg bg-emerald-500/10 text-[#d4d4d4] text-sm italic">
+          Tip: Make sure you&apos;re logged into your Swagger account for the best experience.
+        </div>
       </div>
     </section>
   )
