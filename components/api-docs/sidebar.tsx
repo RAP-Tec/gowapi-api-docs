@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { ChevronDown, Search } from "lucide-react"
 
@@ -200,6 +200,7 @@ interface SidebarProps {
 export function Sidebar({ onClose }: Readonly<SidebarProps>) {
   const [openSections, setOpenSections] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState("")
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const normalizedSearch = searchTerm.trim().toLowerCase()
 
   const filteredNavigation = navigation
@@ -227,6 +228,24 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
     )
   }
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const isCommandOrControl = event.metaKey || event.ctrlKey
+      const isK = event.key.toLowerCase() === "k"
+
+      if (isCommandOrControl && isK) {
+        event.preventDefault()
+        searchInputRef.current?.focus()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
+
   return (
     <aside className="flex flex-col h-full bg-[#0a0a0a] border-r border-[#262626]">
       {/* Logo */}
@@ -244,6 +263,7 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
         <div className="w-full flex items-center gap-2 px-3 py-2 text-sm text-[#a3a3a3] bg-[#171717] border border-[#262626] rounded-lg focus-within:border-[#404040] transition-colors">
           <Search className="w-4 h-4" />
           <input
+            ref={searchInputRef}
             type="text"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
