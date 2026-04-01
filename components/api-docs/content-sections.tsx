@@ -304,19 +304,81 @@ export function DeveloperSDKsSection() {
 export function AuthenticationSection() {
   return (
     <section className="mb-12">
-      <h2 className="text-xl font-semibold text-white mb-4" id="authentication">Authentication</h2>
-      <p className="text-[#a3a3a3] mb-6 leading-relaxed">
-        Learn how to authenticate your API requests using the Bearer Token. This token is generated through the session management screen once the session is successfully connected.
-      </p>
-      <div className="grid gap-4 md:grid-cols-2">
-        <SectionCard
-          title="How to Authenticate API Requests Using Bearer Tokens"
-          description="This guide explains how to authenticate API requests using a Bearer Token, generated after connecting your WhatsApp session through the Session Management screen."
-        />
-        <SectionCard
-          title="How to Authenticate API Requests Using Personal Access Token"
-          description="This guide explains how to authenticate API requests using a Bearer Token, generated from your settings - personal access token page."
-        />
+      <h2 className="text-2xl font-bold text-white mb-1">How to Authenticate API Requests Using Bearer Tokens</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Authentication</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          This guide explains how to authenticate API requests using a Bearer Token, generated after connecting your WhatsApp session through the Session Management screen.
+        </p>
+
+        <h3 id="api-tokens" className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Authentication
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          All WasenderAPI endpoints are secured and require authentication via an API Key. This API key is automatically generated when you create or restore a session from the Session Management screen.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-4">Obtaining Your API Key</h4>
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          Once your WhatsApp session is connected, a unique API Key will be available. This API Key must be included in the{" "}
+          <code className="text-emerald-400">Authorization</code> header for every API request.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-4">Authorization Header Format</h4>
+        <pre className="mb-4 p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-emerald-400">
+{`Authorization: Bearer YOUR_SESSION_API_KEY`}
+        </pre>
+
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          Replace <code className="text-emerald-400">YOUR_SESSION_API_KEY</code> with the API key you received from the session screen.
+          <br />
+          If API key is tied to a specific session. If the session is deleted, the key becomes invalid.
+        </p>
+
+        <div id="best-practices" className="mb-8 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          Keep your API Key private. Avoid exposing it in public repositories or frontend code.
+        </div>
+
+        <h5 className="text-2xl font-semibold text-white mb-3">Parameters</h5>
+        <div className="mb-8 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Type</th>
+                <th className="px-4 py-3">Required</th>
+                <th className="px-4 py-3">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Authorization</td>
+                <td className="px-4 py-3">string</td>
+                <td className="px-4 py-3">Yes</td>
+                <td className="px-4 py-3">Bearer token obtained after session connection. Format: Bearer YOUR_SESSION_API_KEY</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 className="text-2xl font-semibold text-white mb-3">Response Examples</h5>
+        <div className="mb-3 flex items-center gap-2">
+          <span className="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+            No API KEY Response
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">
+            Invalid API KEY Response
+          </span>
+        </div>
+
+        <pre className="p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-[#d4d4d4]">
+{`{
+  "success": false,
+  "message": "API key is required"
+}`}
+        </pre>
       </div>
     </section>
   )
