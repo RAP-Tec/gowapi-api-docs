@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { ChevronDown, Search } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 interface NavItem {
   title: string
@@ -204,6 +205,30 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
   const [searchTerm, setSearchTerm] = useState("")
   const searchInputRef = useRef<HTMLInputElement>(null)
   const normalizedSearch = searchTerm.trim().toLowerCase()
+  const pathname = usePathname()
+
+  const activeSection = navigation.find((section) => {
+    const sectionRoute = sectionRoutes[section.title]
+    const sectionMatches =
+      sectionRoute === "/"
+        ? pathname === "/"
+        : pathname === sectionRoute || pathname.startsWith(`${sectionRoute}/`)
+
+    const itemMatches = section.items?.some((item) => {
+      if (!item.href.startsWith("/")) return false
+      return pathname === item.href || pathname.startsWith(`${item.href}/`)
+    })
+
+    return sectionMatches || itemMatches
+  })?.title
+
+  useEffect(() => {
+    if (!activeSection) return
+
+    setOpenSections((prev) =>
+      prev.includes(activeSection) ? prev : [...prev, activeSection]
+    )
+  }, [activeSection])
 
   const filteredNavigation = navigation
     .map((section) => {
