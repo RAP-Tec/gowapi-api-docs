@@ -37,8 +37,8 @@ const navigation: NavItem[] = [
   {
     title: "Authentication",
     items: [
-      { title: "How to Authenticate Using Bearer Tokens", href: "#bearer-tokens" },
-      { title: "How to Authenticate Using Personal Access Token", href: "#personal-access-token" },
+      { title: "How to Authenticate API Requests", href: "#api-tokens" },
+      { title: "Best Practices", href: "#best-practices" },
     ],
   },
   {
