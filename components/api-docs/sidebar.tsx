@@ -50,7 +50,7 @@ const navigation: NavItem[] = [
   {
     title: "Sessions",
     items: [
-      { title: "Get All WhatsApp Sessions", method: "GET", href: "#get-sessions" },
+      { title: "Get All WhatsApp Sessions", method: "GET", href: "/get-all-whatsapp-sessions" },
       { title: "Create WhatsApp Session", method: "POST", href: "#create-session" },
       { title: "Get WhatsApp Session Details", method: "GET", href: "#get-session-details" },
       { title: "Update WhatsApp Session", method: "PUT", href: "#update-session" },
