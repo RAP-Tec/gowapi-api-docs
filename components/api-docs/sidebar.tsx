@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { ChevronDown, Search, Command } from "lucide-react"
+import { ChevronDown, Search } from "lucide-react"
 
 interface NavItem {
   title: string
@@ -199,6 +199,27 @@ interface SidebarProps {
 
 export function Sidebar({ onClose }: Readonly<SidebarProps>) {
   const [openSections, setOpenSections] = useState<string[]>([])
+  const [searchTerm, setSearchTerm] = useState("")
+  const normalizedSearch = searchTerm.trim().toLowerCase()
+
+  const filteredNavigation = navigation
+    .map((section) => {
+      const titleMatches = section.title.toLowerCase().includes(normalizedSearch)
+      const filteredItems = section.items?.filter((item) =>
+        item.title.toLowerCase().includes(normalizedSearch)
+      )
+
+      if (!normalizedSearch || titleMatches) {
+        return section
+      }
+
+      if (filteredItems && filteredItems.length > 0) {
+        return { ...section, items: filteredItems }
+      }
+
+      return null
+    })
+    .filter((section): section is NavItem => section !== null)
 
   const toggleSection = (title: string) => {
     setOpenSections((prev) =>
@@ -220,19 +241,22 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
 
       {/* Search */}
       <div className="p-4">
-        <button className="w-full flex items-center gap-2 px-3 py-2 text-sm text-[#a3a3a3] bg-[#171717] border border-[#262626] rounded-lg hover:border-[#404040] transition-colors">
+        <div className="w-full flex items-center gap-2 px-3 py-2 text-sm text-[#a3a3a3] bg-[#171717] border border-[#262626] rounded-lg focus-within:border-[#404040] transition-colors">
           <Search className="w-4 h-4" />
-          <span className="flex-1 text-left">Search ...</span>
-          <div className="flex items-center gap-1 text-xs">
-            <Command className="w-3 h-3" />
-            <span>K</span>
-          </div>
-        </button>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="Search..."
+            className="flex-1 bg-transparent outline-none text-[#fafafa] placeholder:text-[#737373]"
+            aria-label="Search documentation sections"
+          />
+        </div>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto px-2 pb-4">
-        {navigation.map((section) => (
+        {filteredNavigation.map((section) => (
           <div key={section.title} className="mb-1">
             <button
               onClick={() => toggleSection(section.title)}
@@ -242,11 +266,11 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
               <ChevronDown
                 className={cn(
                   "w-4 h-4 text-[#a3a3a3] transition-transform",
-                  openSections.includes(section.title) && "rotate-180"
+                  (normalizedSearch || openSections.includes(section.title)) && "rotate-180"
                 )}
               />
             </button>
-            {openSections.includes(section.title) && section.items && (
+            {(normalizedSearch || openSections.includes(section.title)) && section.items && (
               <div className="ml-2 mt-1 space-y-0.5">
                 {section.items.map((item) => (
                   <a
@@ -263,6 +287,9 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
             )}
           </div>
         ))}
+        {filteredNavigation.length === 0 && (
+          <p className="px-3 py-2 text-sm text-[#737373]">No results found.</p>
+        )}
       </nav>
     </aside>
   )
