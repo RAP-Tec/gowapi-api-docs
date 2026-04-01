@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { ChevronDown, Search } from "lucide-react"
+import Image from "next/image"
 
 interface NavItem {
   title: string
@@ -251,9 +252,13 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
       {/* Logo */}
       <div className="p-4 border-b border-[#262626]">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">W</span>
-          </div>
+          <Image
+            src="/favicon.png"
+            alt="GoWAPI logo"
+            width={32}
+            height={32}
+            className="rounded-lg"
+          />
           <span className="font-semibold text-white">GoWAPI</span>
         </div>
       </div>
