@@ -45,9 +45,14 @@ export function DocsShell({ children }: Readonly<DocsShellProps>) {
           <div className="w-full px-4 py-8 lg:px-6 lg:py-12">
             <div className="mb-12 pb-8 border-b border-[#262626]">
               <div className="mb-4 flex items-center gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                  <span>API Documentation</span>
-                </div>
+                <a
+                  href="https://gowapi.readme.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full hover:bg-emerald-500/20 transition-colors"
+                >
+                  <span>Readme.io Doc</span>
+                </a>
                 <a
                   href="https://swagger.gowapi.dev/"
                   target="_blank"
