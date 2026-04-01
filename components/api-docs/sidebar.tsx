@@ -164,7 +164,21 @@ const navigation: NavItem[] = [
   },
 ]
 
-const MethodBadge = ({ method }: { method: "GET" | "POST" | "PUT" | "DELETE" }) => {
+const sectionRoutes: Record<string, string> = {
+  "Getting Started": "/",
+  "Developer SDKs": "/developer-sdks",
+  "Authentication": "/authentication",
+  Sessions: "/sessions",
+  Messages: "/messages",
+  Contacts: "/contacts",
+  Groups: "/groups",
+  "Channels (Communities)": "/channels",
+  Webhooks: "/webhooks",
+  "Responses & Errors": "/responses",
+  "Rate Limits": "/rate-limits",
+}
+
+const MethodBadge = ({ method }: Readonly<{ method: "GET" | "POST" | "PUT" | "DELETE" }>) => {
   const colors = {
     GET: "text-emerald-400",
     POST: "text-blue-400",
@@ -183,8 +197,7 @@ interface SidebarProps {
   onClose?: () => void
 }
 
-export function Sidebar({ onClose }: SidebarProps) {
-  // AQUI const [openSections, setOpenSections] = useState<string[]>(["Getting Started", "Sessions", "Messages"]) // AQUI define quais sessões já vem abertas
+export function Sidebar({ onClose }: Readonly<SidebarProps>) {
   const [openSections, setOpenSections] = useState<string[]>([])
 
   const toggleSection = (title: string) => {
@@ -238,7 +251,7 @@ export function Sidebar({ onClose }: SidebarProps) {
                 {section.items.map((item) => (
                   <a
                     key={item.title}
-                    href={item.href}
+                    href={`${sectionRoutes[section.title] ?? "/"}${item.href}`}
                     onClick={onClose}
                     className="flex items-center gap-2 px-3 py-1.5 text-sm text-[#a3a3a3] hover:text-white hover:bg-[#171717] rounded-lg transition-colors"
                   >
