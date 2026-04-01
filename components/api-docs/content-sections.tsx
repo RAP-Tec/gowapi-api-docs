@@ -384,6 +384,89 @@ export function AuthenticationSection() {
   )
 }
 
+export function N8nIntegrationSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">n8n Integration (Community Node)</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Easily automate your WhatsApp workflows using our official n8n community node. Extremely user-friendly with no API knowledge required.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          n8n Community Node Integration
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          We are thrilled to announce our official n8n Community Node! This node makes it incredibly easy to integrate GoWAPI into your n8n workflows. It is extremely user-friendly and completely bypasses the need for deep API knowledge or complex HTTP requests.
+          <br />
+          NPM Package:{" "}
+          <a
+            href="https://www.npmjs.com/package/n8n-nodes-wasenderapi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:text-emerald-300 underline"
+          >
+            n8n-nodes-wasenderapi
+          </a>
+        </p>
+
+        <h4 className="text-3xl font-semibold text-white mb-4">1. Get Your Personal Access Token</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          To use the n8n node, you need to authenticate using your Personal Access Token. This token allows the node to manage your sessions, fetch dynamic lists, and send messages seamlessly behind the scenes.
+        </p>
+
+        <div className="mb-4 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Important:</strong> Do not use a Session API Key for the n8n node. You must use the Personal Access Token.
+        </div>
+
+        <ul className="text-[#a3a3a3] mb-8 space-y-2">
+          <li>Log into your GoWAPI dashboard.</li>
+          <li>Navigate to <strong>Settings &gt; Personal Access Token</strong>.</li>
+          <li>Click <strong>Generate</strong> to create a new token.</li>
+          <li>Copy the token and keep it secure. You will need this to set up your credentials inside n8n.</li>
+        </ul>
+
+        <h4 className="text-3xl font-semibold text-white mb-4">2. Install the Node in n8n</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Installing a community node in n8n is quick and easy directly from the UI:
+        </p>
+        <ul className="text-[#a3a3a3] mb-8 space-y-2">
+          <li>Open your n8n instance.</li>
+          <li>Navigate to <strong>Settings</strong> (the gear icon on the left sidebar) &gt; <strong>Community Nodes</strong>.</li>
+          <li>Click <strong>Install a community node</strong>.</li>
+          <li>
+            Enter the exact package name{" "}
+            <code className="text-emerald-400">n8n-nodes-wasenderapi</code>.
+          </li>
+          <li>Check the &quot;I understand the risks&quot; acknowledgment box and click <strong>Install</strong>.</li>
+        </ul>
+
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          Self-hosted Docker users: If you prefer managing nodes via environment variables, you can install it by adding{" "}
+          <code className="text-emerald-400">n8n-nodes-wasenderapi</code> to your{" "}
+          <code className="text-emerald-400">N8N_CUSTOM_EXTENSIONS</code> variable.
+        </p>
+
+        <h4 className="text-3xl font-semibold text-white mb-4">3. Using the Node in Your Workflow</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Once installed, you can start building powerful automations immediately:
+        </p>
+        <ul className="text-[#a3a3a3] space-y-2">
+          <li>Open a workflow and click the <strong>+</strong> Add node button.</li>
+          <li>Search for <strong>GoWAPI</strong> and add it to your canvas.</li>
+          <li>Click on the node to open its configuration panel.</li>
+          <li>Under <strong>Credentials</strong>, select <strong>Create New Credential</strong>. Paste the Personal Access Token you generated in Step 1.</li>
+          <li>Select the <strong>Resource</strong> (e.g., Message, Session, Contact, Group) and the <strong>Operation</strong> (e.g., Send Message, Create Session) you want to perform.</li>
+          <li>Fill in the required fields. The node will dynamically load your active sessions, making it just a matter of pointing and clicking!</li>
+        </ul>
+      </div>
+    </section>
+  )
+}
+
 export function SessionsSection() {
   return (
     <section className="mb-12">

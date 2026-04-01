@@ -42,6 +42,12 @@ const navigation: NavItem[] = [
     ],
   },
   {
+    title: "n8n Integration",
+    items: [
+      { title: "n8n Integration (Community Node)", href: "/n8n-integration" },
+    ],
+  },
+  {
     title: "Sessions",
     items: [
       { title: "Get All WhatsApp Sessions", method: "GET", href: "#get-sessions" },
@@ -171,6 +177,7 @@ const sectionRoutes: Record<string, string> = {
   "Getting Started": "/",
   "Developer SDKs": "/developer-sdks",
   "Authentication": "/authentication",
+  "n8n Integration": "/n8n-integration",
   Sessions: "/sessions",
   Messages: "/messages",
   Contacts: "/contacts",
