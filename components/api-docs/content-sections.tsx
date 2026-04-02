@@ -1070,15 +1070,216 @@ export function ResponsesSection() {
 export function RateLimitsSection() {
   return (
     <section className="mb-12">
-      <h2 className="text-xl font-semibold text-white mb-4" id="rate-limits">Rate Limits</h2>
-      <p className="text-[#a3a3a3] mb-6 leading-relaxed">
-        Learn how API rate limiting works to ensure fair usage and system stability. This section explains the allowed number of requests per time window, how to identify throttling, and how to handle rate limit responses.
-      </p>
-      <div className="grid gap-4">
-        <SectionCard
-          title="Understanding Rate Limits"
-          description="Details on the rate limits applied to API requests based on subscription plans."
-        />
+      <h2 className="text-2xl font-bold text-white mb-1" id="rate-limits">Understanding Rate Limits</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Rate Limits</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Understanding Rate Limits
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          To ensure fair usage, platform stability, and the safety of your WhatsApp numbers, WasenderAPI applies rate limits.
+          Limits vary by plan, endpoint, and safety settings.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Rate Limit Headers</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          Every API response includes headers to help you monitor your usage:
+        </p>
+        <ul className="text-[#d4d4d4] mb-8 space-y-2">
+          <li><code className="text-emerald-400">x-ratelimit-limit</code> - maximum requests allowed in the current window.</li>
+          <li><code className="text-emerald-400">x-ratelimit-remaining</code> - remaining requests before the limit is reached.</li>
+          <li><code className="text-emerald-400">x-ratelimit-reset</code> - seconds until the limit resets.</li>
+        </ul>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Message Sending Rate Limits</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          This limit applies specifically to the Send Message endpoint:
+        </p>
+        <div className="mb-8 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Plan / Setting</th>
+                <th className="px-4 py-3">Rate Limit</th>
+                <th className="px-4 py-3">Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Trial Plan</td>
+                <td className="px-4 py-3">1 request / minute</td>
+                <td className="px-4 py-3">Ensures fair access during trial and helps prevent new account abuse.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Paid Plans (Basic, Pro, Plus, Business)</td>
+                <td className="px-4 py-3">2/6 requests / minute</td>
+                <td className="px-4 py-3">High-throughput messaging while respecting anti-abuse and traffic spikes.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Account Protection Enabled (AFK)</td>
+                <td className="px-4 py-3">1 request / 5 seconds</td>
+                <td className="px-4 py-3">Safety-first mode to reduce WhatsApp flag risk. This setting overrides plan limits.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Other Endpoint Rate Limits</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          Some endpoints can be impacted by WhatsApp or suspicious if called too frequently. To protect your account and keep the platform stable, additional limits apply:
+        </p>
+        <div className="mb-8 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Endpoint / Action</th>
+                <th className="px-4 py-3">Rate Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Get group participants / metadata</td>
+                <td className="px-4 py-3">10 requests / minute</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Get contact picture</td>
+                <td className="px-4 py-3">60 requests / minute</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Check if a number is on WhatsApp</td>
+                <td className="px-4 py-3">60 requests / minute</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Daily Request Caps</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          In addition to per-minute limits, some endpoints have daily caps. These caps exist to prevent abuse and reduce WhatsApp restrictions or bans.
+        </p>
+        <div className="mb-8 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Plan / Endpoint</th>
+                <th className="px-4 py-3">Daily Cap</th>
+                <th className="px-4 py-3">Important Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Trial - Send Message</td>
+                <td className="px-4 py-3">50 requests / day</td>
+                <td className="px-4 py-3">Helps prevent new account abuse and encourages safe usage during trials.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Get contact picture</td>
+                <td className="px-4 py-3">1,000 requests / day</td>
+                <td className="px-4 py-3">Excessive use may trigger WhatsApp anti-abuse systems and result in restrictions.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Check if a number is on WhatsApp</td>
+                <td className="px-4 py-3">1,000 requests / day</td>
+                <td className="px-4 py-3">High-risk endpoint. Avoid mass checks and batch requests.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">Get group participant / metadata</td>
+                <td className="px-4 py-3">500 requests / day</td>
+                <td className="px-4 py-3">WhatsApp may monitor group scraping heavily. Call once and store data when possible.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Concurrent Request Limits (Global)</h4>
+        <p className="text-[#a3a3a3] mb-3 leading-relaxed">
+          In addition to per-minute and daily limits, WasenderAPI enforces a global concurrent request limit across all endpoints.
+          This limit controls how many requests can be processed simultaneously per session.
+        </p>
+        <div className="mb-6 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Scope</th>
+                <th className="px-4 py-3">Limit Type</th>
+                <th className="px-4 py-3">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">All Endpoints (Per Session)</td>
+                <td className="px-4 py-3">Concurrent request cap</td>
+                <td className="px-4 py-3">Prevents abusive parallel requests that may trigger WhatsApp anti-abuse systems.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 className="text-xl font-semibold text-white mb-3">How It Works</h5>
+        <ul className="text-[#d4d4d4] mb-6 space-y-2">
+          <li>The limit applies globally across all endpoints.</li>
+          <li>It is enforced per session.</li>
+          <li>Too many simultaneous requests may be temporarily rejected.</li>
+        </ul>
+
+        <div className="mb-4 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Important:</strong> Even if your API allows 2/6 requests per minute, sending them all at once may result in delays, queueing, or burst throttling.
+        </div>
+        <div className="mb-8 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Important:</strong> Request patterns that repeatedly trigger high-risk endpoints may cause temporary restrictions while your usage is reviewed.
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Parameters</h4>
+        <div className="mb-8 overflow-x-auto border border-[#262626] rounded-lg">
+          <table className="w-full text-sm text-left text-[#d4d4d4]">
+            <thead className="bg-[#171717] text-[#a3a3a3] uppercase text-xs">
+              <tr>
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Type</th>
+                <th className="px-4 py-3">Required</th>
+                <th className="px-4 py-3">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">x-ratelimit-limit</td>
+                <td className="px-4 py-3">integer</td>
+                <td className="px-4 py-3">No</td>
+                <td className="px-4 py-3">Maximum number of requests allowed per time window.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">x-ratelimit-remaining</td>
+                <td className="px-4 py-3">integer</td>
+                <td className="px-4 py-3">No</td>
+                <td className="px-4 py-3">Requests remaining in the current time window.</td>
+              </tr>
+              <tr className="border-t border-[#262626]">
+                <td className="px-4 py-3 text-white">x-ratelimit-reset</td>
+                <td className="px-4 py-3">integer</td>
+                <td className="px-4 py-3">No</td>
+                <td className="px-4 py-3">Time in seconds until the rate limit resets.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Response Examples</h4>
+        <div className="mb-3 flex items-center gap-2">
+          <span className="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+            Rate Limit Error (429)
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-lg bg-[#171717] text-[#a3a3a3] text-sm font-medium border border-[#262626]">
+            Rate Limit Error (Account Protection)
+          </span>
+        </div>
+        <pre className="p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-[#d4d4d4]">
+{`{
+  "message": "You are on free trial. You can only send 1 message every 1 minute.",
+  "retry_after": 60
+}`}
+        </pre>
       </div>
     </section>
   )
