@@ -479,14 +479,14 @@ export function SessionsSection() {
           method="GET"
           endpoint="/api/sessions"
           title="Get All WhatsApp Sessions"
-          description="Retrieves a list of all WhatsApp sessions available to the authenticated user."
+          description="Retrieves a list of all WhatsApp associated with the API key. If it's the Server API Plan and you're using the Admin key, lists all sessions."
           id="get-sessions"
         />
         <EndpointCard
           method="POST"
           endpoint="/api/sessions"
           title="Create WhatsApp Session"
-          description="Creates a new WhatsApp session with the provided details. Requires an active subscription and is subject to session limits."
+          description="This is only available for the API Server Plan. Creates a new WhatsApp session with the provided details. In the name field, we recommend providing the full phone number, for example: 5511987654321."
           id="create-session"
         />
         <EndpointCard
