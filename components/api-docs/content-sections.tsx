@@ -190,6 +190,123 @@ export function UsingApiWithSwaggerSection() {
   )
 }
 
+export function UsingApiWithPostmanSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">Using Our API with Postman</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Learn how to interact with our API using the official Postman collection.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Postman Collection for API Integration
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-10 leading-relaxed">
+          To help you get started quickly, we&apos;ve prepared a Postman collection that contains all our API endpoints. You
+          can use it to test requests and understand how the API works.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-3">Option 1: Run in Postman</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Click the button below to open the collection directly in Postman:
+        </p>
+        <a
+          href="https://www.postman.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors mb-10"
+        >
+          Run in Postman →
+        </a>
+
+        <h4 className="text-4xl font-semibold text-white mb-3">Option 2: Download Collection</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          If you&apos;d rather import it manually, download the collection below:
+        </p>
+        <a
+          href="https://swagger.gowapi.dev/openapi.json"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors mb-8"
+        >
+          Download JSON File
+        </a>
+
+        <div className="mt-2 p-4 border-l-2 border-emerald-500 rounded-lg bg-emerald-500/10 text-[#d4d4d4] text-sm italic">
+          Tip: Make sure you&apos;re logged into your Postman account for the best experience.
+        </div>
+
+        <div className="mt-10 p-6 rounded-xl bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-[#262626]">
+          <h5 className="text-2xl font-semibold text-white mb-2">Need Help?</h5>
+          <p className="text-[#a3a3a3] leading-relaxed">
+            Visit our{" "}
+            <a href="/getting-started" className="text-emerald-400 hover:text-emerald-300 underline">
+              Getting Started
+            </a>{" "}
+            section for a walkthrough on authentication, headers, and example requests.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function UsingApiWithReadmeIoSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">Using Our API with Readme.io</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Learn how to interact with our API using the official Readme.io collection.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Readme.io Collection for API Integration
+        </h3>
+
+        <p className="text-[#a3a3a3] mb-10 leading-relaxed">
+          To help you get started quickly, we&apos;ve prepared a Postman collection that contains all our API endpoints.
+          You can use it to test requests and understand how the API works.
+        </p>
+
+        <h4 className="text-4xl font-semibold text-white mb-3">Option 1: Run in Readme.io</h4>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          Click the button below to open the collection directly in Readme.io site:
+        </p>
+        <a
+          href="https://gowapi.readme.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors mb-8"
+        >
+          Run in Readme.io →
+        </a>
+
+        <div className="mt-2 p-4 border-l-2 border-emerald-500 rounded-lg bg-emerald-500/10 text-[#d4d4d4] text-sm italic">
+          Tip: Make sure you&apos;re logged into your Readme.io account for the best experience with IA.
+        </div>
+
+        <div className="mt-10 p-6 rounded-xl bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-[#262626]">
+          <h5 className="text-2xl font-semibold text-white mb-2">Need Help?</h5>
+          <p className="text-[#a3a3a3] leading-relaxed">
+            Visit our{" "}
+            <a href="/getting-started" className="text-emerald-400 hover:text-emerald-300 underline">
+              Getting Started
+            </a>{" "}
+            section for a walkthrough on authentication, headers, and example requests.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function UsingProxiesSection() {
   return (
     <section className="mb-12">

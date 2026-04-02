@@ -23,6 +23,8 @@ const navigation: NavItem[] = [
     items: [
       { title: "Getting Started with GoWAPI", href: "/getting-started" },
       { title: "Using Our API with Swagger", href: "/using-our-api-with-swagger" },
+      { title: "Using Our API with Postman", href: "/using-our-api-with-postman" },
+      { title: "Using Our API with Readme.io", href: "/using-our-api-with-readme-io" },
       { title: "How to implement a Webhook", href: "/how-to-implement-a-webhook" },
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
       { title: "Using Proxies", href: "/using-proxies" },
