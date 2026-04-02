@@ -202,7 +202,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
 
           <p className="text-[#a3a3a3] mb-6 leading-relaxed">
-            Retrieves a list of all WhatsApp sessions available to the authenticated user.
+          Retrieves a list of all WhatsApp associated with the API key. If it's the Server API Plan and you're using the Admin key, lists all sessions.
           </p>
 
           <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
