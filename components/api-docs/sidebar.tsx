@@ -26,6 +26,7 @@ const navigation: NavItem[] = [
       { title: "How to implement a Webhook", href: "/how-to-implement-a-webhook" },
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
       { title: "Using Proxies", href: "/using-proxies" },
+      { title: "How to Avoid Blocking", href: "/how-to-avoid-blocking" },
     ],
   },
   {

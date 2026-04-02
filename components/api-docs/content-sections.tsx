@@ -284,6 +284,114 @@ export function UsingProxiesSection() {
   )
 }
 
+export function HowToAvoidBlockingSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">How to Avoid Blocking</h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111]">
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          How to avoid blocking in WhatsApp when developing bots.
+        </p>
+        <p className="text-[#a3a3a3] mb-8 leading-relaxed">
+          It&apos;s important to keep in mind that WhatsApp has strict policies to prevent spam and abuse.
+          If you&apos;re developing a bot for WhatsApp, it&apos;s crucial to follow these guidelines to reduce the chance of getting blocked.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          Guidelines to Follow
+        </h3>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">1. Only Reply to Messages</h4>
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          When developing a bot for WhatsApp, you should never initiate a conversation.
+          The bot should only reply to messages it receives. This reduces the chance of being flagged as spam by users and algorithms.
+          You can use a short link like <code className="text-emerald-400">https://wa.me/XXXXXXXXXXX</code> so users can start the conversation first.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">2. Avoid Spamming and Sending Unnecessary Content</h4>
+        <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+          Sending too many messages or sending content users did not request can lead to blocks.
+          Only send relevant and useful information. Avoid message bursts in a short period, as this may trigger spam filters.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">3. Other Considerations</h4>
+        <p className="text-[#a3a3a3] mb-10 leading-relaxed">
+          Avoid banned words, do not share inappropriate content, and always follow WhatsApp policies.
+          The safer your messaging behavior, the lower the chance of restrictions.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          How to Process Messages
+        </h3>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          When processing messages in your bot, use this recommended flow:
+        </p>
+        <ol className="text-[#a3a3a3] mb-10 space-y-2 list-decimal pl-6">
+          <li>
+            Send <strong>seen</strong> first using{" "}
+            <code className="text-emerald-400">POST /api/sendSeen</code>.
+          </li>
+          <li>
+            Send a <strong>typing</strong> status and wait briefly using{" "}
+            <code className="text-emerald-400">POST /api/startTyping</code>.
+          </li>
+          <li>
+            Stop the typing status using{" "}
+            <code className="text-emerald-400">POST /api/stopTyping</code>.
+          </li>
+          <li>
+            Send the text message using{" "}
+            <code className="text-emerald-400">POST /api/sendText</code>.
+          </li>
+        </ol>
+        <p className="text-[#a3a3a3] mb-10 leading-relaxed">
+          Following these steps makes your bot behavior look more natural and helps reduce blocking risk.
+        </p>
+
+        <h3 className="text-4xl font-bold text-white mb-6 pb-4 border-b border-[#262626]">
+          How to Avoid Getting Banned
+        </h3>
+        <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+          WhatsApp keeps anti-spam systems active. If many users report your number or ignore your messages, your account may be restricted quickly.
+        </p>
+
+        <h4 className="text-2xl font-semibold text-white mb-3">Dos and Don&apos;ts</h4>
+        <ol className="text-[#a3a3a3] mb-8 space-y-2 list-decimal pl-6">
+          <li>Do not send messages that users did not ask for.</li>
+          <li>Do not send mass campaigns to unknown contacts.</li>
+          <li>Use short and contextual first messages.</li>
+          <li>Avoid links that look suspicious; prefer your own domain when possible.</li>
+          <li>Wait a few seconds between messages to avoid burst behavior.</li>
+          <li>Do not send media in the first message unless the user requested it.</li>
+          <li>Avoid constantly sending to users who never reply.</li>
+          <li>If users ask to stop, stop immediately.</li>
+          <li>Keep message quality high and frequency low.</li>
+          <li>Respect consent and privacy in every interaction.</li>
+        </ol>
+
+        <div className="mb-6 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+          <strong>Keep in mind:</strong> If too many users block or report your number, trust score drops and restrictions can happen even with a technically correct integration.
+        </div>
+
+        <p className="text-[#a3a3a3] leading-relaxed">
+          As a best practice, always ask users to start the chat first using a direct WhatsApp link, for example:{" "}
+          <a
+            href="https://wa.me/12312312312"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:text-emerald-300 underline"
+          >
+            https://wa.me/12312312312
+          </a>
+          .
+        </p>
+      </div>
+    </section>
+  )
+}
+
 export function DeveloperSDKsSection() {
   return (
     <section className="mb-12">
