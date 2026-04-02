@@ -334,13 +334,16 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
         {filteredNavigation.map((section) => (
           <div key={section.title} className="mb-1">
             <button
+              type="button"
               onClick={() => toggleSection(section.title)}
-              className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-[#fafafa] hover:bg-[#171717] rounded-lg transition-colors"
+              className="w-full flex items-start justify-between gap-2 px-3 py-2 text-sm font-medium text-[#fafafa] hover:bg-[#171717] rounded-lg transition-colors text-left"
             >
-              <span>{section.title}</span>
+              <span className="min-w-0 flex-1 break-words whitespace-normal">
+                {section.title}
+              </span>
               <ChevronDown
                 className={cn(
-                  "w-4 h-4 text-[#a3a3a3] transition-transform",
+                  "w-4 h-4 shrink-0 text-[#a3a3a3] transition-transform mt-0.5",
                   (normalizedSearch || openSections.includes(section.title)) && "rotate-180"
                 )}
               />
@@ -353,14 +356,20 @@ export function Sidebar({ onClose }: Readonly<SidebarProps>) {
                     href={item.href.startsWith("/") ? item.href : `${sectionRoutes[section.title] ?? "/"}${item.href}`}
                     onClick={onClose}
                     className={cn(
-                      "flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors",
+                      "flex items-start gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors min-w-0",
                       isItemActive(item.href, section.title)
                         ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
                         : "text-[#a3a3a3] hover:text-white hover:bg-[#171717]"
                     )}
                   >
-                    {item.method && <MethodBadge method={item.method} />}
-                    <span className="truncate">{item.title}</span>
+                    {item.method && (
+                      <span className="shrink-0 pt-0.5">
+                        <MethodBadge method={item.method} />
+                      </span>
+                    )}
+                    <span className="min-w-0 flex-1 break-words whitespace-normal">
+                      {item.title}
+                    </span>
                   </a>
                 ))}
               </div>

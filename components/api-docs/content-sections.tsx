@@ -520,7 +520,7 @@ export function GuideAvoidWhatsAppBansSection() {
       <div className="p-6 border border-[#262626] rounded-xl bg-[#111111] space-y-10">
         <div>
           <h3 className="text-3xl font-bold text-white mb-2 pb-3 border-b border-[#262626]">
-            Complete Guide: How to Avoid WhatsApp Bans in 2025
+            Complete Guide: How to Avoid WhatsApp Bans in 2026
           </h3>
           <p className="text-[#a3a3a3] leading-relaxed">
             Understand the main factors that lead to number bans on WhatsApp, what Meta says about
