@@ -272,7 +272,7 @@ export function UsingProxiesSection() {
           Bash
         </div>
         <pre className="p-4 rounded-lg bg-[#0a0a0a] border border-[#262626] overflow-x-auto text-sm text-[#d4d4d4]">
-{`curl -X PUT "https://www.gowapi.com/api/whatsapp-sessions/{whatsappSession}" \\
+{`curl -X PUT "https://www.gowapi.com/api/sessions/{whatsappSession}" \\
   -H "Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -477,28 +477,28 @@ export function SessionsSection() {
       <div className="grid gap-4">
         <EndpointCard
           method="GET"
-          endpoint="/api/whatsapp-sessions"
+          endpoint="/api/sessions"
           title="Get All WhatsApp Sessions"
           description="Retrieves a list of all WhatsApp sessions available to the authenticated user."
           id="get-sessions"
         />
         <EndpointCard
           method="POST"
-          endpoint="/api/whatsapp-sessions"
+          endpoint="/api/sessions"
           title="Create WhatsApp Session"
           description="Creates a new WhatsApp session with the provided details. Requires an active subscription and is subject to session limits."
           id="create-session"
         />
         <EndpointCard
           method="GET"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}"
+          endpoint="/api/sessions/{whatsappSession}"
           title="Get WhatsApp Session Details"
           description="Retrieves details for a specific WhatsApp session."
           id="get-session-details"
         />
         <EndpointCard
           method="PUT"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}"
+          endpoint="/api/sessions/{whatsappSession}"
           title="Update WhatsApp Session"
           description="Updates details for a specific WhatsApp session. If the session is connected, webhook settings will be synced with the WhatsApp API server."
           id="update-session"
@@ -512,49 +512,49 @@ export function SessionsSection() {
         />
         <EndpointCard
           method="DELETE"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}"
+          endpoint="/api/sessions/{whatsappSession}"
           title="Delete WhatsApp Session"
           description="Deletes a specific WhatsApp session. If the session is connected, it will attempt to disconnect from the WhatsApp API server first."
           id="delete-session"
         />
         <EndpointCard
           method="POST"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/restart"
+          endpoint="/api/sessions/{whatsappSession}/restart"
           title="Restart WhatsApp Session"
           description="Restarts a specific, currently connected WhatsApp session."
           id="restart-session"
         />
         <EndpointCard
           method="POST"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/connect"
+          endpoint="/api/sessions/{whatsappSession}/connect"
           title="Connect WhatsApp Session"
           description="Initiates the connection process for a WhatsApp session. Requires an active subscription."
           id="connect-session"
         />
         <EndpointCard
           method="GET"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/message-logs"
+          endpoint="/api/sessions/{whatsappSession}/message-logs"
           title="Get Message Logs"
           description="Retrieves a paginated list of message logs for a specific session."
           id="message-logs"
         />
         <EndpointCard
           method="GET"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/qrcode"
+          endpoint="/api/sessions/{whatsappSession}/qrcode"
           title="Get WhatsApp Session QR Code"
           description="Retrieves the QR code needed to connect a WhatsApp session with the WhatsApp client. Requires an active subscription."
           id="qr-code"
         />
         <EndpointCard
           method="GET"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/session-logs"
+          endpoint="/api/sessions/{whatsappSession}/session-logs"
           title="Get Session Logs"
           description="Retrieves a paginated list of session activity logs."
           id="session-logs"
         />
         <EndpointCard
           method="POST"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/disconnect"
+          endpoint="/api/sessions/{whatsappSession}/disconnect"
           title="Disconnect WhatsApp Session"
           description="Disconnects an active WhatsApp session."
           id="disconnect-session"
@@ -575,7 +575,7 @@ export function SessionsSection() {
         />
         <EndpointCard
           method="POST"
-          endpoint="/api/whatsapp-sessions/{whatsappSession}/regenerate-key"
+          endpoint="/api/sessions/{whatsappSession}/regenerate-key"
           title="Regenerate API Key"
           description="Regenerates the API key for a specific WhatsApp session."
           id="regenerate-key"

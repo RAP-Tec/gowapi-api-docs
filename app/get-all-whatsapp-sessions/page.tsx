@@ -4,7 +4,7 @@ import { DocsShell } from "@/components/api-docs/docs-shell"
 import { useState } from "react"
 
 export default function GetAllWhatsAppSessionsPage() {
-  const endpoint = "/api/whatsapp-sessions"
+  const endpoint = "/api/sessions"
   const [copied, setCopied] = useState(false)
   const languages = [
     "Bash",
