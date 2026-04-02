@@ -509,6 +509,349 @@ export function HowToAvoidBlockingSection() {
   )
 }
 
+export function GuideAvoidWhatsAppBansSection() {
+  return (
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-1">
+        Guide: How to avoid being banned from WhatsApp
+      </h2>
+      <p className="text-sm text-[#a3a3a3] mb-6">Getting Started</p>
+
+      <div className="p-6 border border-[#262626] rounded-xl bg-[#111111] space-y-10">
+        <div>
+          <h3 className="text-3xl font-bold text-white mb-2 pb-3 border-b border-[#262626]">
+            Complete Guide: How to Avoid WhatsApp Bans in 2025
+          </h3>
+          <p className="text-[#a3a3a3] leading-relaxed">
+            Understand the main factors that lead to number bans on WhatsApp, what Meta says about
+            it, and how to reduce risks when using integrations.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="text-xl font-semibold text-white mb-3">Introduction</h4>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            WhatsApp has established itself as the main communication channel between companies and
+            customers in Brazil. Whether for support, sales, or notifications, it&apos;s hard to
+            imagine an operation that doesn&apos;t rely on this app.
+          </p>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            However, with mass adoption came a growing and poorly understood problem:{" "}
+            <strong className="text-white">number bans</strong>.
+          </p>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            Companies that use WhatsApp frequently—especially via APIs—face constant risks of
+            suspensions and unexpected deactivations. The most frustrating part: these often happen
+            without clear explanation.
+          </p>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            Meta&apos;s algorithm that regulates these bans is{" "}
+            <strong className="text-white">dynamic, context-sensitive, and not very transparent</strong>.
+            Message volume, content type, sending patterns, number history, and even external events
+            directly influence the risk of being banned.
+          </p>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            After analyzing thousands of active instances and conducting continuous technical tests,
+            we identified what actually causes bans—and most importantly, how to reduce this risk
+            without limiting operations.
+          </p>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+            This guide brings together the most relevant insights:
+          </p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>Which factors most influence bans</li>
+            <li>What is myth vs. what is practical reality</li>
+            <li>What actions you can take to protect your numbers</li>
+          </ul>
+          <p className="text-[#a3a3a3] leading-relaxed">
+            More than a technical guide, this is a{" "}
+            <strong className="text-white">strategic alert</strong> for those who want to use WhatsApp
+            efficiently and responsibly.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 1: What is a WhatsApp Ban?
+          </h4>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            A ban occurs when WhatsApp blocks an account for behavior considered outside acceptable
+            platform standards.
+          </p>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">This block can be:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>
+              <strong className="text-white">Permanent</strong>: the number is permanently disabled
+            </li>
+            <li>
+              <strong className="text-white">Temporary</strong>: usage is suspended for a specific period
+            </li>
+          </ul>
+          <div className="mb-4 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+            <strong>Important:</strong> You don&apos;t need to use external tools or obvious spam to
+            get banned.
+          </div>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Today, WhatsApp analyzes multiple signals:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>Message patterns</li>
+            <li>Content</li>
+            <li>Frequency</li>
+            <li>Interaction behavior</li>
+          </ul>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            Many believe message volume is the main cause—but in practice:{" "}
+            <strong className="text-white">
+              the number of unique recipients, frequency, and content type matter much more.
+            </strong>
+          </p>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">There are cases of:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6">
+            <li>New numbers banned with few messages</li>
+            <li>Old numbers banned after changing behavior patterns</li>
+          </ul>
+          <p className="text-[#a3a3a3] mt-4 leading-relaxed">
+            Understanding how bans work is the first step to protecting your operation.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 2: What Meta Officially Says About Bans
+          </h4>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            Meta does not publicly disclose all moderation criteria.
+          </p>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+            However, according to official policies, WhatsApp may ban accounts for:
+          </p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>Spam or excessive automation</li>
+            <li>Messages sent without user consent (opt-in)</li>
+            <li>Mass messaging without relevance to user behavior</li>
+            <li>Content that violates policies (fraud, misinformation, hate speech)</li>
+          </ul>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+            Additionally, WhatsApp uses machine learning systems that analyze:
+          </p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>Sending patterns</li>
+            <li>Content</li>
+            <li>User interaction</li>
+            <li>Reports and manual blocks</li>
+          </ul>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            Even without explicit spam or unauthorized tools,{" "}
+            <strong className="text-white">certain behavioral patterns can trigger bans</strong>
+            —especially if repeated.
+          </p>
+          <p className="text-[#a3a3a3] mb-2 font-medium text-white">Key takeaways:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-4">
+            <li>
+              Having <strong className="text-white">valid opt-in</strong> is essential
+            </li>
+            <li>
+              Avoid <strong className="text-white">sensitive keywords</strong>
+            </li>
+            <li>
+              Respect <strong className="text-white">timing and context</strong> of messages
+            </li>
+          </ul>
+          <p className="text-[#a3a3a3] leading-relaxed">
+            Meta doesn&apos;t reveal the &quot;rules of the game,&quot; but with practical analysis,
+            it&apos;s possible to operate safely.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 3: Main Factors That Influence Bans
+          </h4>
+          <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+            Bans are <strong className="text-white">not random</strong>. They result from a combination
+            of behavioral and contextual factors.
+          </p>
+
+          <h5 className="text-lg font-semibold text-white mb-2">1. High-impact events and sensitive periods</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+            During elections, crises, or major news events:
+          </p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Moderation becomes stricter</li>
+            <li>Even legitimate messages may be blocked</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">2. Message content and sensitive keywords</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Words like:</p>
+          <ul className="text-[#a3a3a3] space-y-1 list-disc pl-6 mb-3">
+            <li>&quot;PIX&quot;</li>
+            <li>&quot;invoice&quot;</li>
+            <li>&quot;card&quot;</li>
+            <li>&quot;withdrawal&quot;</li>
+            <li>&quot;promotion&quot;</li>
+            <li>&quot;last chance&quot;</li>
+          </ul>
+          <div className="mb-6 p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+            <strong>These may be flagged as spam, especially if:</strong> messages are generic, sent in
+            bulk, or lack personalization.
+          </div>
+
+          <h5 className="text-lg font-semibold text-white mb-2">3. New numbers with high volume</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">
+            Newly activated numbers sending many messages quickly are flagged as suspicious.
+          </p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>
+              <span className="text-emerald-400">✓</span> <strong className="text-white">Recommendation:</strong> start slowly; focus on known contacts
+            </li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">4. Recycled numbers and history</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Reused numbers may:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-2">
+            <li>Have been previously banned</li>
+            <li>Be negatively flagged</li>
+          </ul>
+          <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+            Even with low usage, they may be blocked easily.
+          </p>
+
+          <h5 className="text-lg font-semibold text-white mb-2">5. Number of recipients vs. message volume</h5>
+          <p className="text-[#a3a3a3] mb-3 leading-relaxed">This is critical:</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>
+              <span className="text-red-400">✗</span> 1,000 messages to 1,000 different people ={" "}
+              <strong className="text-white">HIGH RISK</strong>
+            </li>
+            <li>
+              <span className="text-emerald-400">✓</span> 1,000 messages to 100 engaged users ={" "}
+              <strong className="text-white">LOW RISK</strong>
+            </li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">6. Repeating patterns after a ban</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Using the same:</p>
+          <ul className="text-[#a3a3a3] space-y-1 list-disc pl-6 mb-3">
+            <li>Profile photo</li>
+            <li>Name</li>
+            <li>Description</li>
+            <li>Message scripts</li>
+          </ul>
+          <div className="p-4 border-l-2 border-amber-500 rounded-lg bg-[#1a1a1a] text-[#d4d4d4] text-sm">
+            WhatsApp can detect patterns and re-ban quickly.
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 4: Best Practices to Avoid Bans
+          </h4>
+          <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+            Avoiding bans completely is impossible—but you can reduce risk significantly.
+          </p>
+
+          <h5 className="text-lg font-semibold text-white mb-2">1. Have clear and legitimate opt-in</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Only message users who agreed</li>
+            <li>Allow easy opt-out</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">2. Segment and personalize messages</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Avoid generic messages.</p>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>
+              <span className="text-emerald-400">✓</span> Use name, context, personalized data
+            </li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">3. Start slow (especially with new numbers)</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Low volume at the beginning</li>
+            <li>Build a &quot;healthy history&quot;</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">4. Monitor metrics</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Delivery rate</li>
+            <li>Blocks</li>
+            <li>Rejections</li>
+            <li>Unread messages</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">5. Vary sending patterns</h5>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Avoid repetition: same text, same time, same structure.</p>
+          <p className="text-[#a3a3a3] mb-2 leading-relaxed">Change profile, description, sending schedule.</p>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 5: Checklist
+          </h4>
+
+          <h5 className="text-lg font-semibold text-white mb-2">Before activating a number</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Change profile photo, name, and description</li>
+            <li>Use new numbers when possible</li>
+            <li>Avoid reusing banned patterns</li>
+            <li>Perform manual interactions</li>
+            <li>Start with low volume</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">When starting API usage</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Segment and personalize</li>
+            <li>Prioritize engaged contacts</li>
+            <li>Avoid large campaigns early</li>
+            <li>Vary timing and content</li>
+            <li>Monitor performance</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">During operation</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6">
+            <li>Monitor reports and blocks</li>
+            <li>Adjust low engagement campaigns</li>
+            <li>Respect user timing</li>
+            <li>Maintain opt-in</li>
+            <li>Have backup numbers</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-2xl font-semibold text-white mb-3 pb-2 border-b border-[#262626]">
+            Chapter 6: Summary – What Really Matters
+          </h4>
+          <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+            WhatsApp is essential—but increasingly regulated. There&apos;s no single answer to &quot;how
+            to avoid bans.&quot;
+          </p>
+
+          <h5 className="text-lg font-semibold text-white mb-2">1. Number of unique recipients matters more than volume</h5>
+          <p className="text-[#a3a3a3] mb-6 leading-relaxed">
+            Sending to many unknown users quickly = spam behavior.
+          </p>
+
+          <h5 className="text-lg font-semibold text-white mb-2">2. Message content matters A LOT</h5>
+          <ul className="text-[#a3a3a3] space-y-2 list-disc pl-6 mb-6">
+            <li>Sensitive keywords</li>
+            <li>Repetitive messages</li>
+            <li>Lack of personalization</li>
+            <li>All increase risk</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold text-white mb-2">3. There is NO &quot;anti-ban formula&quot;</h5>
+          <p className="text-[#a3a3a3] mb-4 leading-relaxed">
+            The algorithm constantly changes. But with good practices, data monitoring, and reliable
+            infrastructure, you can operate safely and efficiently.
+          </p>
+
+          <p className="text-[#a3a3a3] pt-4 border-t border-[#262626] leading-relaxed italic">
+            Use WhatsApp intelligently. Avoid blocks and keep your operation running smoothly.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function DeveloperSDKsSection() {
   return (
     <section className="mb-12">

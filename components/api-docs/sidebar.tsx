@@ -29,6 +29,10 @@ const navigation: NavItem[] = [
       { title: "How To Receive Messages and Media", href: "#receive-messages" },
       { title: "Using Proxies", href: "/using-proxies" },
       { title: "How to Avoid Blocking", href: "/how-to-avoid-blocking" },
+      {
+        title: "Guide: How to avoid being banned from WhatsApp",
+        href: "/guide-how-to-avoid-whatsapp-bans",
+      },
     ],
   },
   {
